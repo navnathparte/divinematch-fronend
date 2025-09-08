@@ -3,6 +3,7 @@ import { useState, type ChangeEvent, type FormEvent } from "react";
 import API from "../api/request";
 import { useAuth } from "../context/AuthContext";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 interface LoginForm {
   email: string;
@@ -30,7 +31,7 @@ export default function Login() {
       await login(token, user);
       navigate("/dashboard");
     } catch (err: any) {
-      alert(err.response?.data?.error || "Invalid credentials");
+      toast.error(err.response?.data?.error || "Invalid credentials")
     }
   };
 
