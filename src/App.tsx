@@ -83,7 +83,7 @@ function App() {
           path="/forgotPassword"
           element={
             <PublicRoute>
-              <ForgotPassword />{" "}
+              <ForgotPassword />
             </PublicRoute>
           }
         />
