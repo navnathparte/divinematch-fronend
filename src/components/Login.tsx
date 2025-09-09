@@ -31,7 +31,7 @@ export default function Login() {
       await login(token, user);
       navigate("/dashboard");
     } catch (err: any) {
-      toast.error(err.response?.data?.error || "Invalid credentials")
+      toast.error(err.response?.data?.error);
     }
   };
 
@@ -76,6 +76,15 @@ export default function Login() {
           Don’t have an account?{" "}
           <a href="/register" className="text-blue-600 hover:underline">
             Register
+          </a>
+        </div>
+
+        <div className="mt-2 text-center">
+          <a
+            href="/forgotPassword"
+            className="text-sm text-blue-600 hover:underline"
+          >
+            Forgot Password?
           </a>
         </div>
       </form>
