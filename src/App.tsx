@@ -11,6 +11,9 @@ import { useAuth } from "./context/AuthContext";
 import Profile from "./components/Profile";
 import PasswordUpdate from "./components/PasswordUpdate";
 import Dashboard from "./components/Dashboard";
+import ForgotPassword from "./components/ForgotPassword";
+import VerifyCode from "./components/VerifyCode";
+import ResetPassword from "./components/ResetPassword";
 
 function App() {
   const { user, token } = useAuth();
@@ -73,6 +76,33 @@ function App() {
             <ProtectedRoute>
               <PasswordUpdate />
             </ProtectedRoute>
+          }
+        />
+
+        <Route
+          path="/forgotPassword"
+          element={
+            <PublicRoute>
+              <ForgotPassword />
+            </PublicRoute>
+          }
+        />
+
+        <Route
+          path="/verifyCode"
+          element={
+            <PublicRoute>
+              <VerifyCode />
+            </PublicRoute>
+          }
+        />
+
+        <Route
+          path="/resetPassword"
+          element={
+            <PublicRoute>
+              <ResetPassword />
+            </PublicRoute>
           }
         />
 

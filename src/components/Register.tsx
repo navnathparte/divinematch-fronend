@@ -1,5 +1,6 @@
 import { useState, type ChangeEvent, type FormEvent } from "react";
 import API from "../api/request";
+import { toast } from "react-toastify";
 
 interface RegisterForm {
   username: string;
@@ -21,10 +22,11 @@ export default function Register() {
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
     try {
-      await API.post("/auth/register", form);
-      alert("Registration successful");
+      const data = await API.post("/auth/register", form);
+      // console.log('data', data?.data?.message)
+      toast.success(data?.data?.message)
     } catch (err: any) {
-      alert(err.response?.data?.error || "Something went wrong");
+      toast.error(err.response?.data?.error || "Something went wrong");
     }
   };
 
