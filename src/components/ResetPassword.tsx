@@ -18,7 +18,10 @@ export default function ResetPassword() {
   const navigate = useNavigate();
   const { email } = (location.state as { email: string }) || {};
 
-  const handleSubmit = async (values: { password: string; confirmPassword: string }) => {
+  const handleSubmit = async (values: {
+    password: string;
+    confirmPassword: string;
+  }) => {
     try {
       await API.post("/auth/reset-password", {
         email,
@@ -45,7 +48,6 @@ export default function ResetPassword() {
         >
           {({ isSubmitting }) => (
             <Form>
-
               <Field
                 type="password"
                 name="password"
