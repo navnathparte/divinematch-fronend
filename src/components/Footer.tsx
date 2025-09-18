@@ -1,12 +1,17 @@
 import { Facebook, Instagram, Linkedin, Twitter, Mail } from "lucide-react";
+import bgImage from "../assets/logo-7.png";
 
 export default function Footer() {
   return (
     <footer className="sticky bottom-0 bg-white shadow-inner">
       <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between px-6 py-4">
         {/* Left: Logo */}
-        <div className="text-lg font-bold text-blue-600 mb-3 sm:mb-0">
-          Divine Match
+        <div className="h-12">
+          <img
+            src={bgImage}
+            alt="Divine Match"
+            className="h-full w-auto object-contain scale-110"
+          />
         </div>
 
         {/* Right: Social Icons */}

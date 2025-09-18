@@ -2,6 +2,7 @@ import { useState, type ChangeEvent, type FormEvent } from "react";
 import API from "../api/request";
 import { toast } from "react-toastify";
 import bgImage from "../assets/image-2.png";
+import { useNavigate } from "react-router-dom";
 
 interface RegisterForm {
   username: string;
@@ -20,12 +21,16 @@ export default function Register() {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
+  const navigate = useNavigate();
+
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
     try {
       const data = await API.post("/auth/register", form);
-      // console.log('data', data?.data?.message)
       toast.success(data?.data?.message);
+
+      // ✅ Redirect to login after success
+      navigate("/login");
     } catch (err: any) {
       toast.error(err.response?.data?.error || "Something went wrong");
     }

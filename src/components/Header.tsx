@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useAuth } from "../context/AuthContext";
 import { Home, MessageCircle, Star, Phone, ChevronDown } from "lucide-react";
 import { useNavigate } from "react-router-dom";
+import bgImage from "../assets/logo-7.png";
 
 export default function Header() {
   const [open, setOpen] = useState(false);
@@ -11,7 +12,13 @@ export default function Header() {
   return (
     <header className="sticky top-0 z-50 bg-white shadow-md">
       <div className="max-w-7xl mx-auto flex items-center justify-between px-6 py-3">
-        <div className="text-2xl font-bold text-blue-600">Divine Match</div>
+        <div className="h-10">
+          <img
+            src={bgImage}
+            alt="Divine Match"
+            className="h-full w-auto"
+          />
+        </div>
 
         <nav className="hidden md:flex space-x-8">
           <a
