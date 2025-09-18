@@ -15,21 +15,6 @@ export default function Profile() {
   });
   const [form, setForm] = useState({ name: "", bio: "" });
 
-  // useEffect(() => {
-  //   console.log("hello");
-
-  //   fetch("/api/profile", {
-  //     headers: { Authorization: "Bearer " + localStorage.getItem("token") },
-  //   })
-  //     .then((res) => res.json())
-  //     .then((data) => {
-  //       console.log(" ====", data);
-
-  //       setUser(data);
-  //       setForm({ name: data.name, bio: data.bio });
-  //     });
-  // }, []);
-
   useEffect(() => {
     const fetchProfile = async () => {
       const token = localStorage.getItem("token");
